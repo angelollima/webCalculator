@@ -1,5 +1,3 @@
-import code
-from urllib import response
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 from math import sqrt
