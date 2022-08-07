@@ -18,10 +18,19 @@ $(".operacoes").on("click", function() {
 
 $("#igual").on("click", function() {
     if (!isNaN(tela.textContent.slice(-1))){
+
         $.ajax({
-            method: "POST",
-            url: "http://localhost:5000/conta/" + str
+            url: `http://localhost:5000/conta/${str}`,
+            method: "GET",
+            error: function(resp){
+                alert(resp.resultado);
+            },
+            success: function(resp){
+                tela.append(resp.detalhes);
+                console.log(resp)
+            }
         });
+
         tela.innerHTML = "";
         str = '';
     } else {
@@ -32,9 +41,4 @@ $("#igual").on("click", function() {
 $("#limpar").on("click", function() {
     str = '';
     tela.innerHTML = "";
-});
-
-$.ajax({
-    method: "POST",
-    url: "http://localhost:5000/" + str
 });
