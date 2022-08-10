@@ -1,4 +1,5 @@
 var str = '';
+resultadoMostrado = false;
 const tela = document.getElementById("tela");
 
 $(".opas").on("click", function() {
@@ -9,7 +10,7 @@ $(".opas").on("click", function() {
 $(".operacoes").on("click", function() {
     operacoes = ["+", "-", "*", "/", "%"];
     if (operacoes.includes(tela.textContent.slice(-1))){
-        alert("burro");
+        alert("nao pode");
     } else {
         str += this.id;
         tela.append(str.slice(-1));
@@ -34,7 +35,7 @@ $("#igual").on("click", function() {
         tela.innerHTML = "";
         str = '';
     } else {
-        alert("burro");
+        alert("nao pode");
     }
 });
 

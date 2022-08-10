@@ -1,20 +1,10 @@
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
-from math import sqrt
-from operator import add, sub, mul, pow
 import re
+from dic import *
 
 app = Flask(__name__)
 CORS(app)
-operacoes = {
-    "+": add,
-    "-": sub,
-    "*": mul,
-    "**": pow,
-    "/": lambda x, y: x / y if y > 0 else "It can't be divided by zero",
-    "s": lambda x: sqrt(x),
-    "ss": lambda x, y: x ** (1/y) if y > 0 else "It can't be zero"
-}
 
 @app.route('/', methods=["GET", "POST"])
 def main() -> None:
